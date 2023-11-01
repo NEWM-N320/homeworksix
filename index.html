@@ -38,17 +38,27 @@
         <li v-for="fav in favItems" v-bind:key="fav.id">{{fav.name}}</li>
       </ul>
 
+      <!-- button that iterates through all items in arr -->
       <button @click="displayFavorite">Favorite Item</button> <br />
+
+      <!-- if there is a selected item (if btn is being pressed) -->
       <p v-if="selectedItem !== null">
+        <!-- init a par that displays the category and selected item -->
         My favorite {{ category }} is {{ selectedItem.name }}!
       </p>
       <br />
 
+      <!-- label for the input -->
       <label for="newItem">New {{ category }}:</label>
+      <!-- create an input, will allow for adding a new item to list -->
       <input v-model="newItemName" @input="updateButton" id="newItem" /> <br />
       <br />
+
+      <!-- button to add the item in input to list  -->
       <button @click="addItemToList">{{ addButtonLabel }}</button>
+      <!-- if there is a new added item -->
       <p v-if="newItemAdded == true">
+        <!-- display the item that has been added to list -->
         {{ addedItemName }} has been added to your list!
       </p>
     </div>
