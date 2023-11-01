@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework Six</title>
+    <!-- link the vue link from cdn -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <!-- first div id , controlled by vue -->
+    <div id="assignments">
+      <!-- name as largest heading -->
+      <h1>{{name}}</h1>
+
+      <!-- course + assignment name as second largest heading-->
+      <h2>{{course}}: {{assignmentName}}</h2>
+
+      <!-- date as third largest heading -->
+      <h3>Due Date: {{dateDue()}}</h3>
+
+      <!-- diff. level as fourth largest header -->
+      <h4>Difficulty Level: {{diffLevel}}/5</h4>
+    </div>
+
+    <hr />
+
+    <!-- second div, controlled by vue -->
+    <div id="myList">
+      <!-- h1 with a title -->
+      <h1>{{title}}</h1>
+
+      <!-- ul with a loop that will iterate through items in arr -->
+      <ul>
+        <!-- li which holds the loop -->
+        <!-- inside, put the item name -->
+        <li v-for="fav in favItems" v-bind:key="fav.id">{{fav.name}}</li>
+      </ul>
+
+      <button @click="displayFavorite">Favorite Item</button> <br />
+      <p v-if="selectedItem !== null">
+        My favorite {{ category }} is {{ selectedItem.name }}!
+      </p>
+      <br />
+
+      <label for="newItem">New {{ category }}:</label>
+      <input v-model="newItemName" @input="updateButton" id="newItem" /> <br />
+      <br />
+      <button @click="addItemToList">{{ addButtonLabel }}</button>
+      <p v-if="newItemAdded == true">
+        {{ addedItemName }} has been added to your list!
+      </p>
+    </div>
+    <!-- link to js, this holds first component -->
+    <script src="app.js"></script>
+
+    <!-- link to js, this holds second component -->
+    <script src="app2.js"></script>
+  </body>
+</html>
